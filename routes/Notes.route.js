@@ -30,6 +30,19 @@ try {
 
 })
 
+NoteRouter.delete("/del/:id",async(req,res)=>{
+
+    const {id}=req.params
+    try {
+        let user= await NoteModel.findByIdAndDelete({_id:id})
+        res.send({"msg":"note deleted successfully"})
+    } catch (error) {
+        res.send({"err":error.message})
+    }
+
+
+})
+
 module.exports={
     NoteRouter
 }

@@ -46,6 +46,8 @@ bcrypt.compare(password, user.password, function(err, result) {
 })
 
 
+
+
 module.exports={
     userRouter
 }
