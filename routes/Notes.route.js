@@ -42,6 +42,20 @@ NoteRouter.delete("/del/:id",async(req,res)=>{
 
 
 })
+NoteRouter.patch("/patch/:id",async(req,res)=>{
+
+    const {id}=req.params
+    console.log(req.body)
+    try {
+        let user= await NoteModel.findByIdAndUpdate({_id:id},req.body)
+        res.send({"msg":"note updated successfully"})
+    } catch (error) {
+        res.send({"err":error.message})
+    }
+
+
+})
+
 
 module.exports={
     NoteRouter
